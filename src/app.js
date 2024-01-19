@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 require('./Database/connection');
 const app = express();
-const port = 3000;
+require('dotenv').config();
+const port = process.env.PORT||3000;
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
@@ -18,7 +19,7 @@ app.use("/api",allRoutes);
 
 const start=()=>{
     app.listen(port, () => {
-        console.log(`Example app listening at http://localhost:${port}`);
+        console.log(`Example app listening at ${port}`);
         }
     );
 }
