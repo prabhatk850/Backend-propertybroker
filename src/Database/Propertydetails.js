@@ -4,25 +4,25 @@ const propertyDetailSchema = new mongoose.Schema({
 
     propertyFor:{
         type:String,
-        required:true
+        // required:true
     },
     propertyType:{
         type:String,
-        required:true
+        // required:true
     },
     
     //
     location:{
         type:String,
-        required:true
+        // required:true
     },
     appartmentName:{
         type:String,
-        required:true
+        // required:true
     },
     locality:[{
         type:String,
-        required:true
+        // required:true
     }],
     houseNo:{
         type:String
@@ -31,15 +31,15 @@ const propertyDetailSchema = new mongoose.Schema({
     //
     bedroom:{
         type:String,
-        required:true
+        // required:true 
     },
     bathroom:{
         type:String,
-        required:true
+        // required:true
     },
     balcony:{
         type:String,
-        required:true
+        // required:true
     },
     area:[{
         type:Map,
@@ -51,7 +51,7 @@ const propertyDetailSchema = new mongoose.Schema({
     }],
     furnishing:{
         type:String,
-        required:true
+        // required:true
     },
     furnishType:[{
         type:Map,
@@ -67,15 +67,15 @@ const propertyDetailSchema = new mongoose.Schema({
 
     totalFloor:{
         type:String,
-        required:true
+        // required:true
     },
     propertyFloor:{
         type:String,
-        required:true
+        // required:true
     },
     propertyAvailable:{
         type:String,
-        required:true
+        // required:true
     },
     ageOfProperty:{
         type:String,
@@ -95,15 +95,15 @@ const propertyDetailSchema = new mongoose.Schema({
     //
     ownerShip:{
         type:String,
-        required:true
+        // required:true
     },
     expectedPrice:{
         type:Number,
-        required:true
+        // required:true
     },
     pricePerSqft:{
         type:Number,
-        required:true
+        // required:true
     },
     allInclusivePrice:{
         type:Boolean,
@@ -119,7 +119,7 @@ const propertyDetailSchema = new mongoose.Schema({
     },
     discription:{
         type:String,
-        required:true
+        // required:true
     },
 
     //
@@ -137,7 +137,7 @@ const propertyDetailSchema = new mongoose.Schema({
     }],
     waterSource:[{
         type:String,
-        required:true
+        // required:true
     }],
     overlooking:[{
         type:String
@@ -148,7 +148,7 @@ const propertyDetailSchema = new mongoose.Schema({
     }],
     facing:{
         type:String,
-        required:true
+        // required:true
     },
     flooring:{
         type:String,
