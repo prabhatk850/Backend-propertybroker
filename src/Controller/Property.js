@@ -4,13 +4,13 @@ const addPost = (req,res)=>{
 
     
     // const propertyDetail = JSON.parse(req.body.property);
-    const {propertyFor,propertyType,location,appartmentName,locality,houseNo,bedroom,bathroom,balcony,area,otherRoom,furnishing,furnishType,closedParking,openParking,totalFloor,propertyFloor,propertyAvailable,ageOfProperty,possesionBy,ownerShip,expectedPrice,pricePerSqft,allInclusivePrice,taxAndGovtCharges,priceNegotiable,discription,amenities,propertyFeatures,societyFeatures,otherFeature,waterSource,overLooking,otherPropertyFeatures,facing,flooring,locationAdvantages}=req.body;
+    const {propertyFor,propertyType,location,appartmentName,locality,houseNo,bedroom,bathroom,balcony,area,otherRoom,furnishing,furnishType,closedParking,openParking,totalFloor,propertyFloor,propertyAvailable,ageOfProperty,possesionBy,ownerShip,expectedPrice,pricePerSqft,allInclusivePrice,taxAndGovtCharges,priceNegotiable,discription,amenities,propertyFeatures,societyFeatures,otherFeatures,waterSource,overlooking,otherPropertyFeatures,facing,flooring,locationAdvantages}=req.body;
 
     // console.log("first",req.body)
     const photos = [req.Pic1,req.Pic2,req.Pic3,req.Pic4,req.Pic5];
    
     const property = new propertyDetailSchema({
-        propertyFor,propertyType,location,appartmentName,locality,houseNo,bedroom,bathroom,balcony,area,otherRoom,furnishing,furnishType,closedParking,openParking,totalFloor,propertyFloor,propertyAvailable,ageOfProperty,possesionBy,ownerShip,expectedPrice,pricePerSqft,allInclusivePrice,taxAndGovtCharges,priceNegotiable,discription,amenities,propertyFeatures,societyFeatures,otherFeature,waterSource,overLooking,otherPropertyFeatures,facing,flooring,locationAdvantages,photos
+        propertyFor,propertyType,location,appartmentName,locality,houseNo,bedroom,bathroom,balcony,area,otherRoom,furnishing,furnishType,closedParking,openParking,totalFloor,propertyFloor,propertyAvailable,ageOfProperty,possesionBy,ownerShip,expectedPrice,pricePerSqft,allInclusivePrice,taxAndGovtCharges,priceNegotiable,discription,amenities,propertyFeatures,societyFeatures,otherFeatures,waterSource,overlooking,otherPropertyFeatures,facing,flooring,locationAdvantages,photos
     })
     property.save().then(data=>{
         res.send(data);
