@@ -44,7 +44,7 @@ const propertyDetailSchema = new mongoose.Schema({
     area:[{
         type:Map,
         of:String,
-        required:true
+      
     }],
     otherRoom:[{
         type:String
@@ -105,11 +105,11 @@ const propertyDetailSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
-    priceInclusive:{
+    allInclusivePrice:{
         type:Boolean,
         default:false
     },
-    taxIncluded:{
+    taxAndGovtCharges:{
         type:Boolean,
         default:false
     },
