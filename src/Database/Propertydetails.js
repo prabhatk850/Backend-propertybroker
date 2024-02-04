@@ -156,6 +156,10 @@ const propertyDetailSchema = new mongoose.Schema({
     locationAdvantages:[{
         type:String,
     }],
+    dateOfUpload:{
+        type:String,
+        default:Date.now()
+    }
 
 });
 
