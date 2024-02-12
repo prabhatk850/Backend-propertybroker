@@ -41,11 +41,13 @@ const propertyDetailSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    area:[{
-        type:Map,
-        of:String,
-      
-    }],
+    area: {
+        type: {
+            type: Map,
+            of: [],
+            required: true
+        }
+    },
     otherRoom:[{
         type:String
     }],
