@@ -3,7 +3,7 @@ const router = express.Router()
 
 const {addPost,viewPost} = require('../Controller/Property')
 
-router.route("/addproperty").post(addPost)
-router.route("/viewproperty").get(viewPost)
+router.route("/property").post(addPost)
+router.route("/property").get(viewPost)
 
 module.exports = router
