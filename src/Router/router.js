@@ -7,4 +7,4 @@ router.route("/property").post(addPost)
 router.route("/property").get(viewPost)
 router.route("/property").put(updatePost)
 
-module.exports = router
+module.exports = router 
