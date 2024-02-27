@@ -28,7 +28,7 @@ const viewPost = (req,res)=>{
 }
 
 const updatePost = (req,res)=>{
-res.send("updatePost")
+res.send("Working")
 }
     
 
