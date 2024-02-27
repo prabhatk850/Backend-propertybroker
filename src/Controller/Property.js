@@ -27,4 +27,9 @@ const viewPost = (req,res)=>{
     })
 }
 
-module.exports = {addPost,viewPost}
+const updatePost = (req,res)=>{
+res.send("updatePost")
+}
+    
+
+module.exports = {addPost,viewPost,updatePost}
