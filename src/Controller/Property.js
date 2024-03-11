@@ -1,4 +1,61 @@
+const {S3Client,PutObjectCommand} = require('@aws-sdk/client-s3');
+require('dotenv').config();
+const fs= require('fs');
+const {ACCESS_KEY_ID,SECRET_ACCESS_KEY,BUCKET_NAME} = process.env;
 const propertyDetailSchema = require('../Database/Propertydetails');
+
+const s3Client = new S3Client({
+    region:"ap-south-1",
+    credentials:{
+        accessKeyId:ACCESS_KEY_ID,
+        secretAccessKey:SECRET_ACCESS_KEY
+    }
+});
+
+const addphotos = (req,res)=>{
+    if(!req.files || Object.keys(req.files).length === 0){
+        return res.status(400).send('No files were uploaded');
+    }
+const mainPic = req.files["pic"][0];
+const altPic = req.files["altpic"];
+
+console.log("first",ACCESS_KEY_ID,SECRET_ACCESS_KEY,BUCKET_NAME)
+const {appartmentName} = JSON.parse(req.body.property);
+const key = "propertyPic/"+appartmentName+"/"+mainPic.filename;
+if(!mainPic||!altPic){
+    return res.status(400).send('No files were uploaded');
+}
+
+const command = new PutObjectCommand({
+    Bucket:BUCKET_NAME,
+    Key:key,
+    Body:fs.createReadStream(mainPic.path),
+    ContentType:mainPic.mimetype
+});
+
+try{
+    const data = s3Client.send(command);
+    for(let i=0;i<altPic.length;i++){
+        const altPicture=altPic[i];
+        const altPicKey = "propertyPic/"+appartmentName+"/"+altPicture.filename;
+
+
+const commandForAltPic = new PutObjectCommand({
+    Bucket:BUCKET_NAME,
+    Key:altPicKey,
+    Body:fs.createReadStream(altPicture.path),
+    ContentType:altPicture.mimetype
+})
+
+const dataForAltPic = s3Client.send(commandForAltPic);
+}
+}catch(err){
+    console.log(err);
+    res.status(400).json({message:"Error occured while uploading image"})
+}
+res.send("Image uploaded successfully");
+// next();
+}
 
 const addPost = (req,res)=>{
 
@@ -32,4 +89,4 @@ res.send("Working")
 }
     
 
-module.exports = {addPost,viewPost,updatePost}
+module.exports = {addPost,viewPost,addphotos,updatePost}
